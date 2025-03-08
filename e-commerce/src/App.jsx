@@ -3,14 +3,14 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import Inicio from "./pages/Inicio/Inicio.jsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./components/Footer/Footer.jsx";
+import SobreNosotros from "./pages/SobreNosotros/SobreNosotros.jsx";
+import Banner from "./components/Banner/Banner.jsx";
 
 
 
 const Productos = () => <h2>📂 Productos</h2>;
 
 const Ordenes = () => <h2>🧑‍💼 Ordenes</h2>;
-
-const SobreNosotros = () => <h2>ℹ️ Sobre Nosotros</h2>;
 
 const Contact = () => <h2>📞 Contacto</h2>;
 
@@ -28,7 +28,8 @@ function App() {
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
-            <Footer/>
+            <Banner />
+            <Footer />
         </Router>
     );
 }

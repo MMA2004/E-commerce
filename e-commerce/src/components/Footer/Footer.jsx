@@ -5,10 +5,6 @@ const Footer = () => {
     return (
         <>
             <footer className={styles.footer}>
-                <div className={styles.banner}>
-                    <h2>Regístrate</h2>
-                    <button className={styles.button}>SIGN UP FOR FREE</button>
-                </div>
                 <div className={styles.container}>
                     <div className={styles.column}>
                         <h3>GIBRA</h3>

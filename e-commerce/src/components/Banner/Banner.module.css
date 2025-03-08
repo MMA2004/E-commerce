@@ -1,0 +1,31 @@
+.banner {
+    background-color: #0a1927; /* Color oscuro del fondo */
+    color: white;
+    align-items: center;
+    height: 150px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner h2 {
+    font-size: 45px;
+    margin-left: 40px;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    padding: 15px 35px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: #ddd;
+}
