@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    padding: 20px 10%;
+    padding: 20px;
     background-color: #0a1927;
     display: flex;
     justify-content: space-between;
@@ -12,8 +12,19 @@
     z-index: 100;
 }
 
+.contenedor {
+    display: flex;
+    width: 450px;
+    justify-content: center;
+}
+
+.contenedorIconos {
+    display: flex;
+    align-items: center;
+}
+
 .logo{
-    font-size: 32px;
+    font-size: 34px;
     color: white;
     font-weight: bold;
 }
@@ -25,12 +36,12 @@
 
 .nav {
     display: flex;
-    gap: 20px;
+    gap: 40px;
 }
 
 .link {
     position: relative;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     font-weight: bold;
     text-decoration: none;
