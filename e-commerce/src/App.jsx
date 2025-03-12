@@ -11,7 +11,7 @@ import Contacto from "./pages/Contacto/Contacto.jsx";
 import Carrito from "./pages/Carrito/Carrito.jsx";
 import ScrollTop from "./components/ScrollTop/ScrolTop.jsx";
 import LogIn from "./pages/LogIn/LogIn.jsx";
-
+import "./config/testFirestore.js";
 
 
 const NotFound = () => <h2>❌ 404 - Página no encontrada</h2>;

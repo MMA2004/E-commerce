@@ -1,0 +1,49 @@
+.cartContainer {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.cartList {
+    margin-top: 20px;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.itemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.itemDetails {
+    flex-grow: 1;
+    padding: 0 15px;
+}
+
+.buttons button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #3ab397;
+    color: white;
+    border-radius: 5px;
+}
+
+.clearButton {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+}
