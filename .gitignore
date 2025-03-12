@@ -1,0 +1,54 @@
+# 🔥 Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+
+# ⚛️ React (Vite)
+.vite/
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# 📦 Editor / IDE
+.vscode/
+.idea/
+*.iml
+
+# 💾 Logs
+logs/
+*.log
+log/
+debug.log
+error.log
+*.gz
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# 🚀 Build / Output
+build/
+dist/
+out/
+.temp/
+
+# 📸 Tests / Coverage
+coverage/
+.nyc_output/
+
+# 🔥 Cache
+.cache/
+.eslintcache
+jest/
+jest-cache/
+jest.config.js
+
+# 📂 Miscellaneous
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
