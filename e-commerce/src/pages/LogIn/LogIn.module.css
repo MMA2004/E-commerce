@@ -1,0 +1,149 @@
+.fondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f4f3;
+}
+
+.container {
+    width: 800px;
+    height: 500px;
+    display: flex;
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.containerForm {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.socialNetwork {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.socialNetwork i {
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    color: black;
+}
+
+.text {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.containerInput {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 15px;
+    background-color: #EEEEEE;
+}
+
+.containerInput input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+
+.link {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.button {
+    width: 170px;
+    height: 45px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #3ab397;
+    color: white;
+}
+
+.toggle .signIn {
+    transform: translateX(100%);
+}
+
+.toggle .signUp {
+    transform: translateX(0);
+}
+
+.signUp {
+    transform: translateX(-100%);
+}
+
+.containerWelcome {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+    background-color: #3ab397;
+    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+    overflow: hidden;
+    border-radius: 50% 0 0 50%;
+}
+
+.toggle .containerWelcome {
+    transform: translateX(0);
+    border-radius: 0 50% 50% 0;
+}
+
+.welcome {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 50px;
+    color: white;
+    transition: transform 0.5s ease-in-out;
+}
+
+.welcomeSignIn {
+    transform: translateX(100%);
+}
+
+.toggle .welcomeSignIn {
+    transform: translateX(0);
+}
+
+.toggle .welcomeSignUp {
+    transform: translateX(-100%);
+}
+

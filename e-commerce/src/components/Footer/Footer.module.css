@@ -2,6 +2,7 @@
     background-color: white;
     padding: 20px 0;
     text-align: center;
+    width: 100vw;
 }
 
 .container {
@@ -67,35 +68,6 @@
     font-weight: bold;
 }
 
-p{
+p {
     color: #0a1927;
-}
-
-.banner {
-    background-color: #0a1927; /* Color oscuro del fondo */
-    color: white;
-    display: flex;
-    justify-content: space-between; /* Espacio entre elementos */
-    align-items: center;
-    width: 100%;
-    height: 150px;
-    padding: 20px 80px; /* Espaciado */
-}
-
-.banner h2 {
-    font-size: 45px;
-}
-
-.button {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.button:hover {
-    background-color: #ddd;
 }

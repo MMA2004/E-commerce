@@ -5,10 +5,6 @@ const Footer = () => {
     return (
         <>
             <footer className={styles.footer}>
-                <div className={styles.banner}>
-                    <h2>Regístrate</h2>
-                    <button className={styles.button}>SIGN UP FOR FREE</button>
-                </div>
                 <div className={styles.container}>
                     <div className={styles.column}>
                         <h3>GIBRA</h3>
@@ -18,11 +14,11 @@ const Footer = () => {
                     <div className={styles.column}>
                         <h3>NAVEGACIÓN</h3>
                         <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Productos</a></li>
-                            <li><a href="#">Sobre nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
-                            <li><a href="#">Carrito</a></li>
+                            <li><Link to={"/"}>Inicio</Link></li>
+                            <li><Link to={"/productos"}>Productos</Link></li>
+                            <li><Link to={"/sobre-nosotros"}>Sobre nosotros</Link></li>
+                            <li><Link to={"/contacto"}>Contacto</Link></li>
+                            <li><Link to={"/carrito"}>Carrito</Link></li>
                         </ul>
                     </div>
 
@@ -35,11 +31,19 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.socialIcons}>
-                        <a href="https://www.instagram.com/gibra_company/" target="_blank"><i
-                            className={`bi bi-instagram ${styles.icon}`}></i></a>
-                        <i className={`bi bi-twitter ${styles.icon}`}></i>
-                        <i className={`bi bi-facebook ${styles.icon}`}></i>
-                        <i className={`bi bi-linkedin ${styles.icon}`}></i>
+                        <a href="https://www.instagram.com/gibra_company/" target="_blank">
+                            <i className={`bi bi-instagram ${styles.icon}`}></i></a>
+                        <a href="https://www.facebook.com/people/GIBRA/61573651571934/" target="_blank">
+                            <i className={`bi bi-facebook ${styles.icon}`}></i></a>
+                        <a href="https://www.youtube.com/@GIBRA-company" target="_blank">
+                            <i className={`bi bi-youtube ${styles.icon}`}></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@gibra_company" target="_blank">
+                            <i className={`bi bi-tiktok ${styles.icon}`}></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/gibra-company/posts/?feedView=all" target="_blank">
+                            <i className={`bi bi-linkedin ${styles.icon}`}></i>
+                        </a>
                     </div>
                 </div>
 

@@ -1,0 +1,41 @@
+.fondo {
+    background-color: #c8d3db;
+    padding-bottom: 10px;
+}
+
+.about {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    line-height: 1.8;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 1.8rem;
+    color: #0a1927;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f4faff;
+    border-left: 5px solid #0a1927;
+    border-radius: 5px;
+    color: #0a1927;
+}

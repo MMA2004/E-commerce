@@ -1,0 +1,31 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30vh;
+    width: 100vw;
+    color: white;
+    margin-top: 85px;
+    background-color: white;
+}
+
+.hero-content {
+    display: block;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: black;
+}
+
+.hero-content a {
+    color: #0988e5;
+}
+
+.hero-content h1 {
+    color: #0a1927;
+    font-size: 40px;
+    text-transform: uppercase;
+}
