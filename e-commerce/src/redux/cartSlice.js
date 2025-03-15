@@ -5,6 +5,8 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
         totalItems: 0,
+        notification: null,
+        isOpenModal: false,
     },
     reducers: {
         addToCart: (state, action) => {
@@ -17,6 +19,7 @@ const cartSlice = createSlice({
                 state.items.push({ ...producto, cantidad: 1 });
             }
             state.totalItems += 1;
+            state.notification = `${producto.nombre} añadido al carrito`;
         },
         removeFromCart: (state, action) => {
             const { id, removeAll } = action.payload; // Recibir id y removeAll
@@ -41,15 +44,21 @@ const cartSlice = createSlice({
                 }
             }
         },
+        toggleModal: (state) => {
+            state.isOpenModal = !state.isOpenModal;
+        },
         clearCart: (state) => {
             state.items = [];
             state.totalItems = 0;
+        },
+        clearNotification: (state) => {
+            state.notification = null; // Acción para limpiar la notificación
         }
     }
 });
 
 // Exportar las acciones
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, clearNotification, toggleModal } = cartSlice.actions;
 
 // Exportar el reducer
 export default cartSlice.reducer;

@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart, clearCart } from "../../redux/cartSlice";
+import { addToCart, removeFromCart, toggleModal } from "../../redux/cartSlice";
 import styles from "./Carrito.module.css";
 import Encabezado from "../../components/Encabezado/Encabezado.jsx";
+import Modal from "../../components/Modal/Modal.jsx";
 
 const Carrito = () => {
     const cartItems = useSelector((state) => state.cart.items);
@@ -13,7 +14,8 @@ const Carrito = () => {
 
     return (
         <div>
-            <Encabezado/>
+            <Modal/>
+            <Encabezado titulo={"Carrito"}/>
             <div className={styles.cartContainer}>
                 <h2>Carrito de Compras ({totalItems} productos)</h2>
                 <div className={styles.cartList}>
@@ -38,7 +40,7 @@ const Carrito = () => {
                     )}
                 </div>
                 <h3>Total: ${totalPrice.toFixed(2)}</h3>
-                <button className={styles.clearButton} onClick={() => dispatch(clearCart())}>Vaciar Carrito</button>
+                <button className={styles.clearButton} onClick={() => dispatch(toggleModal())}>Vaciar Carrito</button>
             </div>
         </div>
     );

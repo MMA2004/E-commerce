@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, clearNotification } from "../../redux/cartSlice";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig.js"; // Asegúrate de importar tu configuración de Firebase
 import styles from "./Productos.module.css"
@@ -10,6 +10,7 @@ const Productos = () => {
     const [productos, setProductos] = useState([]);
     const dispatch = useDispatch();
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("todos");
+    const notification = useSelector((state) => state.cart.notification);
 
     useEffect(() => {
         const obtenerProductos = async () => {
@@ -20,6 +21,16 @@ const Productos = () => {
 
         obtenerProductos();
     }, []);
+
+    useEffect(() => {
+        if (notification) {
+            const timer = setTimeout(() => {
+                dispatch(clearNotification());
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [notification, dispatch]);
 
     const productosFiltrados = categoriaSeleccionada === "todos"
         ? productos
@@ -34,6 +45,9 @@ const Productos = () => {
         <div>
             <Encabezado titulo={"Productos"}/>
             <div className={styles.container}>
+
+                {/* Notificación */}
+                {notification && <div className={styles.notification}>{notification}</div>}
 
                 {/* Botones de categorías */}
                 <div className={styles.categoryButtons}>
