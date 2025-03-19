@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./Inicio.module.css"
-import imagen from "../../assets/hero-banner.png"
 import ProductCards from "../../components/ProductCards/ProductCards.jsx";
 
 function Inicio() {
@@ -14,9 +13,6 @@ function Inicio() {
                         <span>PERSONALIZADAS</span>
                     </h1>
                     <Link to="/shop" className={styles.btn}>Compra ahora</Link>
-                </div>
-                <div className={styles.heroImage}>
-                    <img src={imagen} alt="NFC Card"/>
                 </div>
             </section>
             <ProductCards/>

@@ -13,7 +13,7 @@ const Carrito = () => {
     const totalPrice = cartItems.reduce((total, item) => total + item.precio * item.cantidad, 0);
 
     return (
-        <div>
+        <div className={styles.fondo}>
             <Modal/>
             <Encabezado titulo={"Carrito"}/>
             <div className={styles.cartContainer}>
@@ -39,7 +39,7 @@ const Carrito = () => {
                         ))
                     )}
                 </div>
-                <h3>Total: ${totalPrice.toFixed(2)}</h3>
+                <h3 className={styles.total}>Total: ${totalPrice.toFixed(2)}</h3>
                 <button className={styles.clearButton} onClick={() => dispatch(toggleModal())}>Vaciar Carrito</button>
             </div>
         </div>

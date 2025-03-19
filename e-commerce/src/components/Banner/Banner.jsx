@@ -5,7 +5,7 @@ function Banner() {
     return (
         <div className={styles.banner}>
             <h2>Regístrate</h2>
-            <button className={styles.button}>has click aquí</button>
+            <Link to={"/login"} className={styles.button}>has click aquí</Link>
         </div>
     )
 }

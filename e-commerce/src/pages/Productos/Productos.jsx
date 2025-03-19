@@ -42,7 +42,7 @@ const Productos = () => {
     };
 
     return (
-        <div>
+        <div className={styles.fondo}>
             <Encabezado titulo={"Productos"}/>
             <div className={styles.container}>
 

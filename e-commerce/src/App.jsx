@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Inicio from "./pages/Inicio/Inicio.jsx";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -16,10 +16,13 @@ import "./config/testFirestore.js";
 
 const NotFound = () => <h2>❌ 404 - Página no encontrada</h2>;
 
-function App() {
+function Layout() {
+    const location = useLocation();
+    const hideBannerRoutes = ["/login"]; // Rutas donde no se muestra el banner
+
     return (
-        <Router>
-            <ScrollTop/>
+        <>
+            <ScrollTop />
             <Navbar />
             <Routes>
                 <Route path="/" element={<Inicio />} />
@@ -31,8 +34,16 @@ function App() {
                 <Route path="/login" element={<LogIn />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
-            <Banner />
+            {!hideBannerRoutes.includes(location.pathname) && <Banner />}
             <Footer />
+        </>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <Layout />
         </Router>
     );
 }

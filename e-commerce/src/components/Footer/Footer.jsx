@@ -8,7 +8,10 @@ const Footer = () => {
                 <div className={styles.container}>
                     <div className={styles.column}>
                         <h3>GIBRA</h3>
-                        <p>Your trusted <br/> fashion companion</p>
+                        <p>Especializados en NFC, <br/>
+                            transformamos la manera <br/>
+                            en que las personas <br/>
+                            y negocios se conectan.</p>
                     </div>
 
                     <div className={styles.column}>

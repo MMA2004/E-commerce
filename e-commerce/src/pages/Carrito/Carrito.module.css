@@ -1,50 +1,107 @@
+.fondo {
+    background-color: white;
+}
+
 .cartContainer {
-    padding: 20px;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cartContainer h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0a1927;
 }
 
 .cartList {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .cartItem {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
+    gap: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid #0a1927;
 }
 
 .itemImage {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 2px solid #dcdcdc;
 }
 
 .itemDetails {
     flex-grow: 1;
-    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemDetails h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #0a1927;
+}
+
+.itemDetails p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .buttons button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #3ab397;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #0a1927;
     color: white;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.buttons button:hover {
+    background: #333;
 }
 
 .clearButton {
-    background-color: red;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 10px;
     margin-top: 20px;
+    background: red;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
+
+.clearButton:hover {
+    background: darkred;
+}
+
+.total {
+    color: #0a1927;
+}
+
 

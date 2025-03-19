@@ -2,22 +2,73 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro con opacidad */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1000;
+    align-items: center;
+    z-index: 1000; /* Asegura que la modal esté encima de otros elementos */
 }
 
 .modal_content {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 90%;
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color:black;
+    width: 350px; /* Ajusta el ancho de la ventana modal */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal_content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #0a1927;
+}
+
+.modal_content h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #0a1927;
+}
+
+.modal_content button {
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal_content button:first-of-type {
+    background: #ccc;
+    color: #333;
+}
+
+.modal_content button:first-of-type:hover {
+    background: #bbb;
+}
+
+.modal_content button:last-of-type {
+    background: #d9534f;
+    color: white;
+}
+
+.modal_content button:last-of-type:hover {
+    background: #c9302c;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
     }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
