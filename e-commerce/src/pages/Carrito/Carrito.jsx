@@ -1,16 +1,43 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart, toggleModal } from "../../redux/cartSlice";
+import { addToCart, removeFromCart, toggleModal, setCart } from "../../redux/cartSlice";
 import styles from "./Carrito.module.css";
 import Encabezado from "../../components/Encabezado/Encabezado.jsx";
 import Modal from "../../components/Modal/Modal.jsx";
+import { guardarCarritoFirestore, obtenerCarritoDesdeFirestore } from "../../helpers/guardarCarrito.js";
+import { useEffect, useState } from "react";
 
 const Carrito = () => {
     const cartItems = useSelector((state) => state.cart.items);
     console.log(cartItems);
     const totalItems = useSelector((state) => state.cart.totalItems);
     const dispatch = useDispatch();
+    const [carritoCargado, setCarritoCargado] = useState(false);
+
+    useEffect(() => {
+        const uid = localStorage.getItem("uid");
+        if (!uid) return;
+
+        const cargarCarrito = async () => {
+            const items = await obtenerCarritoDesdeFirestore(uid);
+            if (items.length > 0) {
+                dispatch(setCart(items));
+            }
+            setCarritoCargado(true);
+        };
+
+        cargarCarrito();
+    }, []);
 
     const totalPrice = cartItems.reduce((total, item) => total + item.precio * item.cantidad, 0);
+
+    useEffect(() => {
+        const uid = localStorage.getItem("uid");
+        if (!uid || !carritoCargado) return;
+
+        guardarCarritoFirestore(uid, cartItems);
+    }, [cartItems, carritoCargado]);
+
+
 
     return (
         <div className={styles.fondo}>

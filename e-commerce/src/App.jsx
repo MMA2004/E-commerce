@@ -11,6 +11,8 @@ import Contacto from "./pages/Contacto/Contacto.jsx";
 import Carrito from "./pages/Carrito/Carrito.jsx";
 import ScrollTop from "./components/ScrollTop/ScrolTop.jsx";
 import LogIn from "./pages/LogIn/LogIn.jsx";
+import RecuperarContrasena from "./pages/RecuperarContrasena/RecuperarContrasena.jsx";
+import Logout from "./pages/Logout/LogOut.jsx";
 import "./config/testFirestore.js";
 
 
@@ -18,7 +20,7 @@ const NotFound = () => <h2>❌ 404 - Página no encontrada</h2>;
 
 function Layout() {
     const location = useLocation();
-    const hideBannerRoutes = ["/login"]; // Rutas donde no se muestra el banner
+    const hideBannerRoutes = ["/login", "/recuperar-contrasena"];
 
     return (
         <>
@@ -33,6 +35,8 @@ function Layout() {
                 <Route path="/carrito" element={<Carrito />} />
                 <Route path="/login" element={<LogIn />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/recuperar-contrasena" element={<RecuperarContrasena />} />
+                <Route path="/logout" element={<Logout />} />
             </Routes>
             {!hideBannerRoutes.includes(location.pathname) && <Banner />}
             <Footer />

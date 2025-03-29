@@ -53,12 +53,16 @@ const cartSlice = createSlice({
         },
         clearNotification: (state) => {
             state.notification = null; // Acción para limpiar la notificación
+        },
+        setCart: (state, action) => {
+            state.items = action.payload;
+            state.totalItems = action.payload.reduce((sum, item) => sum + item.cantidad, 0);
         }
     }
 });
 
 // Exportar las acciones
-export const { addToCart, removeFromCart, clearCart, clearNotification, toggleModal } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, clearNotification, toggleModal, setCart } = cartSlice.actions;
 
 // Exportar el reducer
 export default cartSlice.reducer;
