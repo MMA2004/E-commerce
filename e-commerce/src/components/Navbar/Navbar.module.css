@@ -64,14 +64,70 @@
     width: 100%;
 }
 
-.link:hover {
-    color: white;
-}
-
 .active {
     font-weight: bold;
 }
 
 .active::before {
     width: 100%;
+}
+
+.button {
+    position: relative;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding-bottom: 5px;
+    transition: color 0.3s ease-in-out;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.button:hover::before {
+    width: 100%;
+}
+
+.tituloModal{
+    color: black;
+}
+
+.buttonModal {
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 30px 10px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttonCerrar {
+    background: #d9534f;
+    color: white;
+}
+
+.buttonCerrar:hover {
+    background: #c9302c;
+}
+
+.buttonCancelar:hover {
+    background: #bbb;
+}
+
+.buttonCancelar {
+    background: #ccc;
+    color: #333;
 }

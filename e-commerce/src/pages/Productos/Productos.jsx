@@ -41,7 +41,7 @@ const Productos = () => {
 
         else
         {
-            dispatch(addToCart(product));
+            dispatch(addToCart({producto: product, flag: true}));
 
             // Simular estado actualizado del carrito
             const productoExistente = cartItems.find(item => item.id === product.id);
@@ -75,15 +75,15 @@ const Productos = () => {
                 {notification && <div className={styles.notification}>{notification}</div>}
                 {mostrarModalLogin && (
                     <Modal onClose={() => setMostrarModalLogin(false)}>
-                        <h2>Debes iniciar sesión</h2>
+                        <h2 className={styles.tituloModal}>Debes iniciar sesión</h2>
                         <p>Por favor inicia sesión para agregar productos al carrito.</p>
-                        <button onClick={() => setMostrarModalLogin(false)}>Cerrar</button>
-                        <Link to={"/login"}>Iniciar sesión</Link>
+                        <button className={`${styles.buttonModal} ${styles.buttonCancelar}`} onClick={() => setMostrarModalLogin(false)}>Cerrar</button>
+                        <Link className={`${styles.buttonModal} ${styles.buttonCerrar}`} to={"/login"}>Iniciar sesión</Link>
                     </Modal>
                 )}
                 {/* Botones de categorías */}
                 <div className={styles.categoryButtons}>
-                    {["todos", "ropa", "electronica", "hogar"].map((categoria) => (
+                    {["todos", "tarjetas", "tags"].map((categoria) => (
                         <button
                             key={categoria}
                             onClick={() => setCategoriaSeleccionada(categoria)}
@@ -101,6 +101,12 @@ const Productos = () => {
                             <div key={product.id} className={styles.productCard}>
                                 <img src={product.imagen} alt={product.nombre} className={styles.productImage} />
                                 <h3 className={styles.productName}>{product.nombre}</h3>
+                                {product.personalizable ? (
+                                    <h4 className={styles.productDescription}>Personalizable</h4>
+                                ) : (
+                                    <h4 className={styles.productDescription}>Color único</h4>
+                                )}
+
                                 <p className={styles.productPrice}>${product.precio}</p>
                                 <button className={styles.addButton} onClick={() => handleAddToCart(product)}>
                                     Agregar al carrito

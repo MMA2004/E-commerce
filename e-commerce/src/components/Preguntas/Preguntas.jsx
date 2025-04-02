@@ -18,17 +18,26 @@ function Pregunta({ question, answer }) {
 function ListPreguntas() {
     const faqs = [
         {
-            question: "How often do you introduce new collections?",
+            question: "¿Qué es la tecnología NFC y cómo funciona?",
             answer:
-                "We regularly refresh our collections to keep up with the latest trends...",
+                "La tecnología NFC (Near Field Communication) permite la comunicación inalámbrica entre dispositivos cercanos. " +
+                "Se usa en tarjetas, etiquetas y teléfonos móviles para compartir información con solo acercarlos.",
         },
         {
-            question: "Do you offer international shipping?",
-            answer: "Yes, we offer international shipping to multiple countries...",
+            question: "¿Necesito instalar una app para usar NFC?",
+            answer:
+                "No, la mayoría de los teléfonos modernos tienen NFC habilitado de forma nativa " +
+                "y pueden leer nuestras tarjetas sin necesidad de instalar una aplicación.",
         },
         {
-            question: "Are gift cards available?",
-            answer: "Yes, we offer digital and physical gift cards for purchase.",
+            question: "¿Puedo personalizar mi tarjeta NFC con mi logo y diseño?",
+            answer: "Sí, ofrecemos opciones de personalización con tu logo, colores y " +
+                "diseño personalizado para que tu tarjeta refleje la identidad de tu marca.",
+        },
+        {
+            question: "¿Es posible actualizar el contenido de mi página multilink sin cambiar la tarjeta?",
+            answer: "Sí, puedes actualizar los enlaces y la información de tu página en cualquier " +
+                "momento sin necesidad de cambiar la tarjeta NFC.",
         },
     ];
 

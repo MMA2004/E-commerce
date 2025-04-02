@@ -5,7 +5,7 @@ const Modal = ({ children, onClose }) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <button className={styles.closeButton} onClick={onClose}>×</button>
+                <button className={styles.closeButton} onClick={onClose}><i className="bi bi-x-circle"></i></button>
                 <div className={styles.content}>
                     {children}
                 </div>

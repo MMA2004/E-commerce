@@ -1,11 +1,40 @@
 import styles from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {cerrarSesion} from "../../helpers/auth.js";
+import {clearCart} from "../../redux/cartSlice.js";
+import { useDispatch } from "react-redux";
+import Modal from "../ModalWindow/ModalWindow.jsx";
+import React, {useState} from "react";
+
 
 function Navbar() {
     const uid = localStorage.getItem("uid");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [mostrarModal, setMostrarModal] = useState(false);
+
+
+    const cerrar = async () => {
+        await cerrarSesion();
+        dispatch(clearCart());
+        setMostrarModal(false);
+        navigate("/login");
+    };
+
+    const cancelar = () => {
+        setMostrarModal(false);
+    };
+
     return (
         <header className={styles.header}>
             <div className={styles.contenedor}>
+                {mostrarModal && (
+                    <Modal onClose={cancelar}>
+                        <h2 className={styles.tituloModal}>¿Estás seguro que quieres cerrar sesión?</h2>
+                        <button className={`${styles.buttonModal} ${styles.buttonCancelar}`} onClick={cancelar}>Cancelar</button>
+                        <button className={`${styles.buttonModal} ${styles.buttonCerrar}`} onClick={cerrar}>Cerrar sesión</button>
+                    </Modal>
+                )}
                 <nav className={styles.nav}>
                     <NavLink to="/productos"
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
@@ -40,10 +69,9 @@ function Navbar() {
                     {
                         uid ? (
                             <>
-                                <NavLink to="/logout"
-                                         className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
+                                <button className={styles.button} onClick={() => {setMostrarModal(true)}}>
                                     <i className="bi bi-box-arrow-right"></i>
-                                </NavLink>
+                                </button>
                             </>
                         ) : (
                             <NavLink to="/login"

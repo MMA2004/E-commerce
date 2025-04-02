@@ -33,11 +33,12 @@
     right: 15px;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 23px;
     cursor: pointer;
+    color: black;
 }
 
 .content {
-    margin-top: 1.5rem;
+    margin-top: 10px;
     text-align: center;
 }

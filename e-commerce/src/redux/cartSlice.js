@@ -10,7 +10,7 @@ const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            let producto = action.payload;
+            let { producto, flag } = action.payload;
             const productoExistente = state.items.find(item => item.id === producto.id);
             if (productoExistente) {
                 productoExistente.cantidad += 1;
@@ -19,7 +19,10 @@ const cartSlice = createSlice({
                 state.items.push({ ...producto, cantidad: 1 });
             }
             state.totalItems += 1;
-            state.notification = `${producto.nombre} añadido al carrito`;
+            if (flag) {
+                state.notification = `${producto.nombre} añadido al carrito`;
+            }
+
         },
         removeFromCart: (state, action) => {
             const { id, removeAll } = action.payload; // Recibir id y removeAll

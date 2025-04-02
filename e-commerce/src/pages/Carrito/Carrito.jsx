@@ -51,13 +51,13 @@ const Carrito = () => {
                     ) : (
                         cartItems.map((item) => (
                             <div key={item.id} className={styles.cartItem}>
-                                <img src={item.image} alt={item.nombre} className={styles.itemImage} />
+                                <img src={item.imagen} alt={item.nombre} className={styles.itemImage} />
                                 <div className={styles.itemDetails}>
                                     <h4>{item.nombre}</h4>
                                     <p>Precio: ${item.precio}</p>
                                     <p>Cantidad: {item.cantidad}</p>
                                     <div className={styles.buttons}>
-                                        <button onClick={() => dispatch(addToCart(item))}>+</button>
+                                        <button onClick={() => dispatch(addToCart({ producto: item, flag: false }))}>+</button>
                                         <button onClick={() => dispatch(removeFromCart({ id: item.id, removeAll: false }))}>-</button>
                                         <button onClick={() => dispatch(removeFromCart({ id: item.id, removeAll: true }))}>Eliminar</button>
                                     </div>
