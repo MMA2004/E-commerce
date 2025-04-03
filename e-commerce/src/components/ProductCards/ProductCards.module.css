@@ -1,6 +1,7 @@
 .container {
     text-align: center;
     padding: 40px;
+    background-color: white;
 }
 
 .button {
@@ -21,7 +22,7 @@
 .products {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 100px;
     margin-top: 20px;
 }
 

@@ -17,8 +17,7 @@ const Products = () => {
                     <div className={styles.textContainer}>
                         <h3>Tarjetas NFC</h3>
                         <p>
-                            Install the Figma plugin and you're ready to convert your designs to
-                            a responsive site.
+                            Tarjetas NFC presonalizables para llevar tu negocio a otro nivel
                         </p>
                     </div>
                 </div>
@@ -31,8 +30,7 @@ const Products = () => {
                     <div className={styles.textContainer}>
                         <h3>Tags NFC</h3>
                         <p>
-                            Browse dozens of professionally designed templates. Click, duplicate,
-                            customize.
+                            Tags NFC para simplificar tu forma de hacer las cosas
                         </p>
                     </div>
                 </div>
