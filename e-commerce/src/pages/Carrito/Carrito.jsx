@@ -26,7 +26,7 @@ const Carrito = () => {
         };
 
         cargarCarrito();
-    }, []);
+    }, [dispatch]);
 
     const totalPrice = cartItems.reduce((total, item) => total + item.precio * item.cantidad, 0);
 

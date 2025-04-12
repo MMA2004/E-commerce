@@ -5,11 +5,19 @@
     left: 0;
     width: 100vw;
     padding: 20px;
-    background-color: #0a1927;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: background-color 0.5s ease;
+}
+
+.transparente {
+    background-color: transparent;
+}
+
+.scrollActivo {
+    background-color: #0a1927; /* o el color que combine con tu tema */
 }
 
 .contenedor {
@@ -130,4 +138,20 @@
 .buttonCancelar {
     background: #ccc;
     color: #333;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.oculto {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 }

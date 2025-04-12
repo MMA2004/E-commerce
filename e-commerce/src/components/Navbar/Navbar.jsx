@@ -1,10 +1,10 @@
 import styles from "./Navbar.module.css";
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink, useLocation, useNavigate} from "react-router-dom";
 import {cerrarSesion} from "../../helpers/auth.js";
 import {clearCart} from "../../redux/cartSlice.js";
 import { useDispatch } from "react-redux";
 import Modal from "../ModalWindow/ModalWindow.jsx";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 function Navbar() {
@@ -12,6 +12,7 @@ function Navbar() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [mostrarModal, setMostrarModal] = useState(false);
+    const location = useLocation();
 
 
     const cerrar = async () => {
@@ -25,8 +26,24 @@ function Navbar() {
         setMostrarModal(false);
     };
 
+    const [scrollActivo, setScrollActivo] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollActivo(window.scrollY > 10); // Cambia el valor según el efecto que quieras
+        };
+
+        if (location.pathname === "/") {
+            window.addEventListener("scroll", handleScroll);
+        }
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [location.pathname]);
+
+    const esInicio = location.pathname === "/";
+
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${
+            esInicio ? (scrollActivo ? styles.scrollActivo : styles.transparente) : styles.scrollActivo}`}>
             <div className={styles.contenedor}>
                 {mostrarModal && (
                     <Modal onClose={cancelar}>
@@ -48,7 +65,9 @@ function Navbar() {
             </div>
 
             <div className={styles.contenedor}>
-                <NavLink to="/" className={styles.logo}>GIBRA COMPANY</NavLink>
+                <NavLink to="/" className={`${styles.logo} ${esInicio && !scrollActivo ? styles.oculto : ""}`}>
+                    GIBRA COMPANY
+                </NavLink>
             </div>
 
             <div className={styles.contenedor}>

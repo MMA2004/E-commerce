@@ -40,3 +40,23 @@
 .btn:hover{
     color: white;
 }
+
+.marca-grande {
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(0);
+    color: white;
+    padding: 150px;
+}
+
+.oculto {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+    pointer-events: none;
+}
+
+.inicio {
+    background-color: gray;
+}

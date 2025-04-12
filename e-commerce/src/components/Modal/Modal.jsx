@@ -10,14 +10,16 @@ function Modal() {
         dispatch(toggleModal());
     };
 
+
     if (isOpen) {
         return (
             <div className={styles.modal_overlay}>
                 <div className={styles.modal_content}>
+                    <button className={styles.closeButton} onClick={() => dispatch(toggleModal())}><i className="bi bi-x-circle"></i></button>
                     <h2>Alerta</h2>
                     <h4>¿Estas seguro que quieres vaciar el carrito?</h4>
-                    <button onClick={() => dispatch(toggleModal())}>Cerrar</button>
-                    <button onClick={clearAndClose}>Vaciar Carrito</button>
+                    <button className={styles.button1} onClick={() => dispatch(toggleModal())}>Cerrar</button>
+                    <button className={styles.button1} onClick={clearAndClose}>Vaciar Carrito</button>
                 </div>
             </div>
         )
