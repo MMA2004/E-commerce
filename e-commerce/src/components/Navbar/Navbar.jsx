@@ -41,9 +41,22 @@ function Navbar() {
 
     const esInicio = location.pathname === "/";
 
+    const [menuAbierto, setMenuAbierto] = useState(false);
+
+    const cerrarMenu = () => setMenuAbierto(false);
+
+    const [esMobile, setEsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setEsMobile(window.innerWidth <= 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <header className={`${styles.header} ${
-            esInicio ? (scrollActivo ? styles.scrollActivo : styles.transparente) : styles.scrollActivo}`}>
+            esInicio ? (scrollActivo ? styles.scrollActivo : styles.transparente) : styles.scrollActivo
+        } ${menuAbierto ? styles.menuAbierto : ""}`}>
             <div className={styles.contenedor}>
                 {mostrarModal && (
                     <Modal onClose={cancelar}>
@@ -52,35 +65,54 @@ function Navbar() {
                         <button className={`${styles.buttonModal} ${styles.buttonCerrar}`} onClick={cerrar}>Cerrar sesión</button>
                     </Modal>
                 )}
+
+                <button className={styles.hamburguesa} onClick={() => setMenuAbierto(!menuAbierto)}>
+                    <i className="bi bi-list"></i>
+                </button>
+
                 <nav className={styles.nav}>
-                    <NavLink to="/productos"
+                    <NavLink to="/productos" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                         PRODUCTOS
                     </NavLink>
-                    <NavLink to="/ordenes"
+                    <NavLink to="/ordenes" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                         ORDENES
                     </NavLink>
                 </nav>
             </div>
 
-            <div className={styles.contenedor}>
-                <NavLink to="/" className={`${styles.logo} ${esInicio && !scrollActivo ? styles.oculto : ""}`}>
+            <div className={`${styles.contenedor} ${esMobile ? styles.contenedorLogoMobile : ""}`}>
+                <NavLink to="/" onClick={cerrarMenu} className={`${styles.logo} ${esInicio && !scrollActivo ? styles.oculto : ""}`}>
                     GIBRA COMPANY
                 </NavLink>
             </div>
 
             <div className={styles.contenedor}>
                 <nav className={styles.nav}>
-                    <NavLink to="/sobre-nosotros"
+
+                    <NavLink to="/productos" onClick={cerrarMenu}
+                             className={({ isActive }) =>
+                                 isActive ? `${styles.link} ${styles.active} ${styles.soloMobile}` : `${styles.link} ${styles.soloMobile}`
+                             }>
+                        PRODUCTOS
+                    </NavLink>
+                    <NavLink to="/ordenes" onClick={cerrarMenu}
+                             className={({ isActive }) =>
+                                 isActive ? `${styles.link} ${styles.active} ${styles.soloMobile}` : `${styles.link} ${styles.soloMobile}`
+                             }>
+                        ORDENES
+                    </NavLink>
+
+                    <NavLink to="/sobre-nosotros" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                         SOBRE NOSOTROS
                     </NavLink>
-                    <NavLink to="/contacto"
+                    <NavLink to="/contacto" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                         CONTACTO
                     </NavLink>
-                    <NavLink to="/carrito"
+                    <NavLink to="/carrito" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                         <i className="bi bi-cart2"></i>
                     </NavLink>
@@ -93,7 +125,7 @@ function Navbar() {
                                 </button>
                             </>
                         ) : (
-                            <NavLink to="/login"
+                            <NavLink to="/login" onClick={cerrarMenu}
                                      className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
                                 <i className="bi bi-person-circle"></i>
                             </NavLink>

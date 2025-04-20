@@ -24,6 +24,7 @@
     display: flex;
     width: 450px;
     justify-content: center;
+    background-color: red;
 }
 
 .contenedorIconos {
@@ -155,3 +156,62 @@
     transform: translateY(20px);
     pointer-events: none;
 }
+
+.hamburguesa {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.soloMobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .soloMobile {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 280px;
+        background-color: #0a1927;
+        padding: 100px 20px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 25px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1500;
+    }
+
+    .menuAbierto .nav {
+        transform: translateX(0%);
+        display: flex;
+    }
+
+    .contenedor {
+        width: 0;
+    }
+
+    .hamburguesa {
+        display: block;
+    }
+
+    .contenedorLogoMobile {
+        width: 300px;
+    }
+}
+
