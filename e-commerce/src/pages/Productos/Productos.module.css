@@ -176,3 +176,62 @@
     background: #ccc;
     color: #333;
 }
+
+/* Responsive para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    }
+
+    .categoryButtons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* Responsive para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .products {
+        grid-template-columns: 1fr; /* 1 sola columna */
+    }
+
+    .productImage {
+        height: 180px;
+    }
+
+    .categoryButtons {
+        justify-content: left;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .categoryButtons button {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .productCard {
+        padding: 10px;
+    }
+
+    .productName {
+        font-size: 18px;
+    }
+
+    .productDescription {
+        font-size: 14px;
+    }
+
+    .productPrice {
+        font-size: 18px;
+    }
+
+    .addButton {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+}

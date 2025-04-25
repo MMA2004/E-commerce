@@ -31,6 +31,7 @@ function Inicio() {
                         <span>NFC PERSONALIZADAS</span>
                     </h1>
                     <Link to="/shop" className={styles.btn}>Compra ahora</Link>
+
                 </div>
             </section>
 

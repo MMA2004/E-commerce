@@ -66,9 +66,6 @@ function Navbar() {
                     </Modal>
                 )}
 
-                <button className={styles.hamburguesa} onClick={() => setMenuAbierto(!menuAbierto)}>
-                    <i className="bi bi-list"></i>
-                </button>
 
                 <nav className={styles.nav}>
                     <NavLink to="/productos" onClick={cerrarMenu}
@@ -87,6 +84,7 @@ function Navbar() {
                     GIBRA COMPANY
                 </NavLink>
             </div>
+
 
             <div className={styles.contenedor}>
                 <nav className={styles.nav}>
@@ -133,6 +131,10 @@ function Navbar() {
                     }
                 </nav>
             </div>
+
+            <button className={styles.hamburguesa} onClick={() => setMenuAbierto(!menuAbierto)}>
+                <i className="bi bi-list"></i>
+            </button>
         </header>
     );
 }
