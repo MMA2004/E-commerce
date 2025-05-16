@@ -34,7 +34,7 @@
 .categoryButtons button {
     background: none;
     border: none;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     color: #666;
@@ -200,7 +200,7 @@
     }
 
     .productImage {
-        height: 180px;
+        height: 300px;
     }
 
     .categoryButtons {
@@ -210,7 +210,7 @@
     }
 
     .categoryButtons button {
-        font-size: 14px;
+        font-size: 20px;
         padding: 4px 8px;
     }
 
