@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBpf1ssAL3RjavF5Y7kPrOyLzRdTGGEnDk",
-    authDomain: "e-commerce-gibra.firebaseapp.com",
-    projectId: "e-commerce-gibra",
-    storageBucket: "e-commerce-gibra.firebasestorage.app",
-    messagingSenderId: "496036142255",
-    appId: "1:496036142255:web:cc83b02f52a33b290ec85a",
-    measurementId: "G-1JYDM9C5WT"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
