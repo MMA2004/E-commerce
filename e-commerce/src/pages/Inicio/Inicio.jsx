@@ -35,7 +35,7 @@ function Inicio() {
                                 <span>NEGOCIO CON TARJETAS</span> <br />
                                 <span>NFC PERSONALIZADAS</span>
                             </h1>
-                            <Link to="/shop" className={`btn ${styles.btn}`}>Compra ahora</Link>
+                            <Link to="/productos" className={`btn ${styles.btn}`}>Compra ahora</Link>
                         </div>
                     </div>
 

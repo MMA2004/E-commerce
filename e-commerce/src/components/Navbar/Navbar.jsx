@@ -14,7 +14,6 @@ function Navbar() {
     const [mostrarModal, setMostrarModal] = useState(false);
     const location = useLocation();
 
-
     const cerrar = async () => {
         await cerrarSesion();
         dispatch(clearCart());
@@ -53,7 +52,16 @@ function Navbar() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        if (menuAbierto) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [menuAbierto]);
+
     return (
+        <>
         <header className={`${styles.header} ${
             esInicio ? (scrollActivo ? styles.scrollActivo : styles.transparente) : styles.scrollActivo
         } ${menuAbierto ? styles.menuAbierto : ""}`}>
@@ -74,7 +82,7 @@ function Navbar() {
                     </NavLink>
                     <NavLink to="/ordenes" onClick={cerrarMenu}
                              className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
-                        ORDENES
+                        MIS ÓRDENES
                     </NavLink>
                 </nav>
             </div>
@@ -99,7 +107,7 @@ function Navbar() {
                              className={({ isActive }) =>
                                  isActive ? `${styles.link} ${styles.active} ${styles.soloMobile}` : `${styles.link} ${styles.soloMobile}`
                              }>
-                        ORDENES
+                        MIS ÓRDENES
                     </NavLink>
 
                     <NavLink to="/sobre-nosotros" onClick={cerrarMenu}
@@ -132,10 +140,21 @@ function Navbar() {
                 </nav>
             </div>
 
-            <button className={styles.hamburguesa} onClick={() => setMenuAbierto(!menuAbierto)}>
-                <i className="bi bi-list"></i>
-            </button>
+            {!(esInicio && !scrollActivo) && (
+                <button className={styles.hamburguesa} onClick={() => setMenuAbierto(!menuAbierto)}>
+                    <i className="bi bi-list"></i>
+                </button>
+            )}
         </header>
+
+            {menuAbierto && (
+                <div
+                    className={styles.overlay}
+                    onClick={() => setMenuAbierto(false)} // Cierra el menú si hacen clic fuera
+                ></div>
+            )}
+
+        </>
     );
 }
 

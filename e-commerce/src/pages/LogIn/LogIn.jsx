@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { app } from "../../config/firebaseConfig.js";
 import Encabezado from "../../components/Encabezado/Encabezado.jsx";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -12,7 +13,8 @@ function LogIn() {
     const auth = getAuth(app);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
-
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
 
     // Manejar Registro
@@ -20,18 +22,27 @@ function LogIn() {
         e.preventDefault();
         setError("");
         setSuccess("");
-        setEmail("");
-        setPassword("");
+        setLoading(true);
+
+        if (password.length < 6) {
+            setError("La contraseña debe tener al menos 6 caracteres.");
+            setLoading(false);
+            return;
+        }
 
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             setSuccess("Usuario registrado con éxito");
+            setEmail("");
+            setPassword("");
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
                 setError("El correo ya está en uso.");
             } else {
                 setError("Error al registrarse");
             }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -40,19 +51,24 @@ function LogIn() {
         e.preventDefault();
         setError("");
         setSuccess("");
-        setEmail("");
-        setPassword("");
+        setLoading(true);
 
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // Guardar el UID en localStorage (o puedes usar Redux si lo prefieres)
             localStorage.setItem("uid", user.uid);
             setSuccess("Inicio de sesión exitoso");
+            navigate("/");
+
         } catch {
-                setError("Email o contraseña incorrectos.");
+            setError("Email o contraseña incorrectos.");
+        } finally {
+            setLoading(false);
         }
+
+        setEmail("");
+        setPassword("");
     };
 
     const handleToggle = (signUp) => {
@@ -82,7 +98,9 @@ function LogIn() {
                             </div>
                             {error && <p className={styles.errorMessage}>{error}</p>}
                             <Link to="/recuperar-contrasena" className={styles.link}>¿Olvidaste tu contraseña?</Link>
-                            <button className={styles.button} type="submit">Iniciar sesión</button>
+                            <button className={styles.button}  onClick={handleSignIn} disabled={loading} type="submit">
+                                {loading ? "Cargando..." : "Iniciar Sesión"}
+                            </button>
                             {success && <p className={styles.successMessage}>{success}</p>}
                         </form>
                     </div>
@@ -101,7 +119,9 @@ function LogIn() {
                                 <input className={styles.input} type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                             </div>
                             {error && <p className={styles.errorMessage}>{error}</p>}
-                            <button className={styles.button} type="submit">Registrarse</button>
+                            <button className={styles.button} onClick={handleSignUp} disabled={loading} type="submit">
+                                {loading ? "Cargando..." : "Registrarse"}
+                            </button>
                             {success && <p className={styles.successMessage}>{success}</p>}
                         </form>
                     </div>

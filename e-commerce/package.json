@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
-    "bootstrap": "^5.3.5",
+    "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.11.3",
     "firebase": "^11.4.0",
+    "nanoid": "^5.1.5",
     "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

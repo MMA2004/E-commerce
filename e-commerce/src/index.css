@@ -1,5 +1,36 @@
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('./assets/fonts/GOTHICB.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('./assets/fonts/GOTHICB0.TTF') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('./assets/fonts/GOTHICI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('./assets/fonts/GOTHICBI.TTF') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+body {
+  font-family: 'Century Gothic', sans-serif;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Century Gothic", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

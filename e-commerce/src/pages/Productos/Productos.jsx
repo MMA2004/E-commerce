@@ -107,7 +107,7 @@ const Productos = () => {
                                     <h4 className={styles.productDescription}>Color único</h4>
                                 )}
 
-                                <p className={styles.productPrice}>${product.precio}</p>
+                                <p className={styles.productPrice}>${product.precio.toLocaleString("es-ES")}</p>
                                 <button className={styles.addButton} onClick={() => handleAddToCart(product)}>
                                     Agregar al carrito
                                 </button>
