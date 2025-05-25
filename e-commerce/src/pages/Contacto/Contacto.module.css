@@ -65,3 +65,61 @@
 .contact-form button:hover {
     background-color: #192a45;
 }
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .contact-info h3 {
+        font-size: 18px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
+    }
+
+    .contact-form button {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        animation: slideIn 0.6s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

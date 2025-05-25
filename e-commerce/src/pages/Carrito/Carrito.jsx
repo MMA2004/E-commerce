@@ -5,6 +5,7 @@ import Encabezado from "../../components/Encabezado/Encabezado.jsx";
 import Modal from "../../components/Modal/Modal.jsx";
 import { guardarCarritoFirestore, obtenerCarritoDesdeFirestore } from "../../helpers/guardarCarrito.js";
 import { useEffect, useState } from "react";
+import { guardarOrden } from "../../helpers/guardarOrden.js";
 
 const Carrito = () => {
     const cartItems = useSelector((state) => state.cart.items);
@@ -37,7 +38,32 @@ const Carrito = () => {
         guardarCarritoFirestore(uid, cartItems);
     }, [cartItems, carritoCargado]);
 
+    const armarMensajeWhatsApp = (orderId, cartItems, totalPrice) => {
+        if (!cartItems || cartItems.length === 0) return "";
 
+        let mensaje = `Hola, acabo de hacer un pedido con ID: ${orderId}\n\nProductos:\n`;
+
+        cartItems.forEach(item => {
+            mensaje += `- ${item.nombre} x${item.cantidad} = $${(item.precio * item.cantidad).toLocaleString('es-ES')}\n`;
+        });
+
+        mensaje += `\nTotal: $${totalPrice.toLocaleString('es-ES')}`;
+
+        return encodeURIComponent(mensaje);
+    };
+
+    const handleComprarWhatsApp = async () => {
+        const uid = localStorage.getItem("uid");
+        if (!uid || cartItems.length === 0) return;
+
+        // Guardar orden en Firestore y obtener ID
+        const orderId = await guardarOrden(uid, cartItems, totalPrice);
+        if (!orderId) return;
+
+        // Armar mensaje con el ID incluido
+        const mensaje = armarMensajeWhatsApp(orderId, cartItems, totalPrice);
+        window.open(`https://wa.me/573152632395?text=${mensaje}`, "_blank");
+    };
 
     return (
         <div className={styles.fondo}>
@@ -54,7 +80,7 @@ const Carrito = () => {
                                 <img src={item.imagen} alt={item.nombre} className={styles.itemImage} />
                                 <div className={styles.itemDetails}>
                                     <h4>{item.nombre}</h4>
-                                    <p>Precio: ${item.precio}</p>
+                                    <p>Precio: ${item.precio.toLocaleString('es-ES')}</p>
                                     <p>Cantidad: {item.cantidad}</p>
                                     <div className={styles.buttons}>
                                         <button onClick={() => dispatch(addToCart({ producto: item, flag: false }))}>+</button>
@@ -66,8 +92,11 @@ const Carrito = () => {
                         ))
                     )}
                 </div>
-                <h3 className={styles.total}>Total: ${totalPrice.toFixed(2)}</h3>
+                <h3 className={styles.total}>Total: ${totalPrice.toLocaleString('es-ES')}</h3>
                 <button className={styles.clearButton} onClick={() => dispatch(toggleModal())}>Vaciar Carrito</button>
+                <button className={styles.buyWhatsAppButton} onClick={handleComprarWhatsApp}>
+                    Comprar por WhatsApp
+                </button>
             </div>
         </div>
     );
