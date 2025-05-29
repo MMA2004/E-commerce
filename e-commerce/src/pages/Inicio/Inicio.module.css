@@ -1,5 +1,12 @@
 .inicio {
     background-color: gray;
+    background-image: url("../../../public/");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .marca-grande {
@@ -9,7 +16,6 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
     transform: translateY(0);
     color: white;
-    padding: 150px;
 }
 
 .oculto {

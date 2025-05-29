@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styles from "./Inicio.module.css";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import ProductCards from "../../components/ProductCards/ProductCards.jsx";
-import heroBanner from "../../assets/hero-banner.png"; // Importa la imagen
+
+const banner = "https://firebasestorage.googleapis.com/v0/b/e-commerce-gibra.firebasestorage.app/o/hero-banner.png?alt=media&token=85f378bb-0921-49e1-8655-3e3c1a9d4c27"
 
 function Inicio() {
     const [visible, setVisible] = useState(true);
@@ -31,8 +32,8 @@ function Inicio() {
                     <div className="col-12 col-md-6 text-center text-md-start">
                         <div className={styles["hero-content"]}>
                             <h1>
-                                <span>SIMPLIFICA TU</span> <br />
-                                <span>NEGOCIO CON TARJETAS</span> <br />
+                                <span>SIMPLIFICA TU</span> <br/>
+                                <span>NEGOCIO CON TARJETAS</span> <br/>
                                 <span>NFC PERSONALIZADAS</span>
                             </h1>
                             <Link to="/productos" className={`btn ${styles.btn}`}>Compra ahora</Link>
@@ -41,13 +42,15 @@ function Inicio() {
 
                     {/* Imagen */}
                     <div className="col-12 col-md-6 text-center mt-4 mt-md-0">
-                        <img src={heroBanner} alt="Hero Banner" className="img-fluid" />
+                        <img
+                            src={banner}
+                            alt="Hero Banner" className="img-fluid"/>
                     </div>
                 </div>
             </section>
 
             {/* Cards de Productos */}
-            <ProductCards />
+            <ProductCards/>
         </section>
     );
 }
