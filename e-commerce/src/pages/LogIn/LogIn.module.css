@@ -165,3 +165,21 @@
     font-size: 14px;
     margin-top: 8px;
 }
+
+@media (max-width: 768px) {
+    .titleWelcome {
+        font-size: 20px;
+    }
+
+    .containerInput {
+        width: 150px;
+    }
+
+    .text {
+        font-size: 12px;
+        margin-bottom: 15px;
+        color: #0a1927;
+    }
+
+
+}
